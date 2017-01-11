@@ -1,0 +1,25 @@
+// bower:scss
+// endbower
+
+// Import Definitions
+@import '_definitions/typography';
+@import '_definitions/colors';
+@import '_definitions/mixin';
+
+// global scss
+body, html {
+  width: 100%; height: 100%;
+  margin: 0; padding: 0;
+  background: $right-bg;
+  overflow-x: hidden;
+}
+
+.clear {
+	clear:both;
+}
+
+// Import Modules
+@import '_modules/nav-icon';
+@import '_modules/left-content';
+@import '_modules/right-content';
+@import '_modules/footer';

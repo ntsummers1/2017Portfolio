@@ -1,0 +1,122 @@
+.left-content{
+
+	background: $left-nav-bg;
+
+	@include bp(xmd) {
+		width: 100px; height: 100%;
+		box-sizing: border-box;
+		position: fixed;
+		left: 0;
+		z-index:1;
+	}
+
+	@include bp(md) {
+		width: 75px; height: 100%;
+		position: fixed;
+		left:0;
+	}
+}
+
+.nav-list {
+	list-style-type:none;
+	margin: 0; padding: 0;
+
+	&-item {
+		width: 100%; height: 120px;
+		box-sizing: border-box;
+		padding-right: 3px;
+
+		background: $left-nav-bg;
+
+		&:nth-child(1) a {
+			color: $left-nav-lc;
+			&:before { content: "\f121"; }
+			&:after { content: "Work"; } 	
+		}
+		&:nth-child(2) a {
+			color: $left-nav-lc;
+			&:before { content: "\f007";}
+			&:after { content: "About";} 	
+		}
+
+		&:nth-child(3) a {
+			color: $left-nav-lc;
+			&:before { content: "\f0e0";}
+			&:after { content: "Contact";} 	
+		}
+
+		&:nth-child(4) a {
+			color: $left-nav-lc;
+			&:before { content: "\f1cb";}
+			&:after { content: "Codepen";} 	
+		}
+
+		&:nth-child(5) a {
+			color: $left-nav-lc;
+			&:before { content: "\f0e1";}
+			&:after { content: "LinkedIn";} 	
+		}
+
+		&:nth-child(6) a {
+			color: $left-nav-lc;
+			&:before { content: "\f09b";}
+			&:after { content: "Github";}
+		}
+
+		&.active {
+			&:nth-child(1) { border-left: 3px solid $red; padding-right: 0;} 
+		}
+
+		&:hover, &.active:hover { border-left: 3px solid $white; padding-right: 0;}
+
+
+		
+	}
+
+
+	a {
+		display: block;
+		width: 100%; height: 100%;
+		position: relative;
+		font: 400 14px $Content;
+		text-decoration: none;
+		&:hover, &:focus {
+
+			&:before, &:after {
+				color: $left-nav-lc;
+			}
+
+			&:after {
+				text-decoration: underline;
+			}
+		}
+
+		&:before {
+			display: block;
+			content: "";
+			position: relative;
+			top: 50%; left: 50%;
+			transform: translate(-50%, -50%);
+			font-family: FontAwesome;
+			text-decoration: none;
+			font-size:24px; 
+			text-align: center;
+		}
+		
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			bottom: 15px; left: 0; right: 0;
+			margin: 0 auto;
+			text-align: center;
+		}
+
+		&.selected {
+			&:before, &:after {
+				color: #555;
+			}
+
+		}
+	}
+}

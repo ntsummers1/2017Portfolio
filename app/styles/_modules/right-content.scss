@@ -1,0 +1,334 @@
+.right-content {
+	background: $right-bg;
+
+	@include bp(xmd) {
+	    min-width: 100%;
+	    min-height: 100%;
+	    position: relative;
+	    top: 0;
+	    bottom: 100%;
+	    left: 0;
+	    z-index: 1;
+	}
+
+	@include bp(md) {
+		width: 100%; 
+		margin: 0 auto; padding: 0 0 0 75px;
+		box-sizing: border-box;
+	}
+
+	@media (min-width:2000px) { max-width: 2000px;}
+}
+
+.hero {
+	width: 100%; height: 500px;
+	position:relative;
+	border: 1px solid #ccc;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	background: $right-hero-bg;
+
+	@include bp(sm) {
+		height: 600px;
+	}
+
+	@include bp(md) {
+		height: 800px;
+	}
+
+	&-headings {
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		margin:auto; padding: 0;
+
+		width: 280px; height: 200px;
+
+		@include bp(sm) {
+			width: 300px; height: 255px;
+		}
+
+		@include bp(md) {
+			width: 687px; height: 420px;
+		}
+
+		@include bp(xlg) {
+			width: 950px; height: 300px;
+		}
+	}
+
+	&-header {
+		margin:0; padding: 0;
+
+		color: $right-hero-h1;
+		font-family: $Heading;
+		font-size: 3rem;
+		line-height: 3rem;
+		letter-spacing: 0;
+		text-align: center;
+		text-transform: uppercase;
+
+		@include bp(sm) {
+			font-size: 4rem;
+			line-height: 4rem;
+		}
+
+		@include bp(md) {
+			font-size: 7rem;
+			line-height: 7rem;
+		}
+	}
+
+	&-p {
+		margin: 30px 0 0 0; padding: 0;
+
+		color: $right-hero-p;
+		font-family: $Heading;
+		font-size: 1.3rem;
+		line-height: 1.3rem;
+		letter-spacing: 0;
+		text-align: center;
+
+		@include bp(sm) {
+			font-size: 1.6rem;
+			line-height: 1.6rem;
+		}
+
+		@include bp(md) {
+			font-size: 2.5rem;
+			line-height: 2.5rem;
+		}
+	}
+}
+
+.container {
+	width: 100%;
+	padding: 20px;
+	@include bp(md) { padding: 20px 40px; }
+	box-sizing:border-box;
+	clear: both;
+
+}
+
+.featured {
+	clear: both;
+	&-header {
+		margin: 0; padding: 20px 0 0 20px;
+		@include bp(md) { margin:0; padding: 20px 0 0px 40px; }
+		font: 2.5rem $Heading;
+		color: $right-featured-heading;
+		line-height: 32px;
+		letter-spacing: 0;
+	}
+
+	&-projects {
+		width: 100%; height: 250px;
+		margin:0;
+		@include bp(md) { 
+			width:30%; height: 250px;
+			margin: 0 5%;
+		}
+		display: block;
+		float: left;
+		background: url("../images/MSUsearch.png") no-repeat center center;
+	   	-webkit-background-size: cover;
+	   	-moz-background-size: cover;
+	   	-o-background-size: cover;
+	   	background-size: cover;
+		box-sizing: border-box;
+
+		position: relative;
+
+		&:before {
+			content: "";
+			display: block;
+			width: 100%; height: 100%;
+		}
+
+		&:hover:before { background: darken(rgba($right-featured-hover-bg, .75), 20%); }
+
+
+		&:after {
+				content: "";
+				display: block;
+				width: 100%; height: auto;
+
+				text-align: center;
+				text-decoration: underline;
+				position: absolute;
+				top: 50%;
+			    left: 50%;
+			    -webkit-transform: translate(-50%, -50%);
+			    transform: translate(-50%, -50%);
+
+			    font: 24px $Content;
+			    font-weight: bold;
+			    letter-spacing: 0;
+			    line-height: 24px;
+			    color: $right-featured-hover-color;
+		}
+
+		&:first-of-type {
+			margin:0;
+			background-image: url("../images/MSUinteractivemap.png");
+		}
+
+		&:last-of-type {
+			margin: 0;
+			background-image: url("../images/MSUmaps.png");
+		}
+
+		&:hover, &:focus {
+
+			&:nth-child(1):after {
+				content: "MSU Interactive Map";
+			}
+
+			&:nth-child(2):after {
+				content: "MSU Search";
+			}
+
+			&:nth-child(3):after {
+				content: "MSU Map Portal";
+			}
+		}
+	}
+}
+
+.all {
+	clear: both;
+	padding-bottom: 40px;
+	&-header {
+		margin: 0; padding: 0 0 0 20px;
+		@include bp(md) { margin:0; padding: 20px 0 0px 40px; }
+		font: 2.5rem $Heading;
+		color: $right-all-heading;
+		line-height: 32px;
+		letter-spacing: 0;
+	}
+
+	&-projects {
+		height: 250px;
+		margin: 0;
+		display: block;
+		float: left;
+		background: url("../images/MSUsearch.png") no-repeat center center;
+	   	-webkit-background-size: cover;
+	   	-moz-background-size: cover;
+	   	-o-background-size: cover;
+	   	background-size: cover;
+		box-sizing: border-box;
+		position: relative;
+
+		&.one { 
+			width: 100%;
+			@include bp(md) { width:33.3333%; }
+		}
+		&.two { 
+			width: 100%;
+			@include bp(md) { width:66.6667%; }
+		}
+
+		&:before {
+			content: "";
+			display: block;
+			width: 100%; height: 100%;
+		}
+
+		// &:nth-child(1):before { background: rgba($yellow, .75); }
+		// &:nth-child(2):before { background: rgba($red, .75); }
+		// &:nth-child(3):before { background: rgba($light-blue, .75); }
+		// &:nth-child(4):before { background: rgba($orange, .75); }
+		// &:nth-child(5):before { background: rgba($blue, .75); }
+		// &:nth-child(6):before { background: rgba($green, .75); }
+		// &:nth-child(7):before { background: rgba($red, .75); }
+
+		&:after {
+				content: "";
+				display: block;
+				width: 100%; height: auto;
+
+				text-align: center;
+				text-decoration: underline;
+				position: absolute;
+				top: 50%;
+			    left: 50%;
+			    -webkit-transform: translate(-50%, -50%);
+			    transform: translate(-50%, -50%);
+
+			    font: 24px $Content;
+			    letter-spacing: 0;
+			    line-height: 24px;
+			    color: #555;
+		}
+
+		&:first-of-type {
+			margin:0
+		}
+
+		&:last-of-type {
+			margin: 0;
+		}
+
+		&:hover, &:focus {
+
+			&:nth-child(1):after {
+				content: "To Be Determined";
+			}
+
+			&:nth-child(2):after {
+				content: "To Be Determined";
+			}
+
+			&:nth-child(3):after {
+				content: "To Be Determined";
+			}
+
+			&:nth-child(4):after {
+				content: "To Be Determined";
+			}
+
+			&:nth-child(5):after {
+				content: "MSU Search";
+			}
+
+			&:nth-child(6):after {
+				content: "MSU Map Portal";
+			}
+
+			&:nth-child(7):after {
+				content: "MSU Interactive Map";
+			}
+		}
+	}
+}
+
+.about {
+
+	display: block;
+	width: 100%; height: auto;
+	margin:0; padding: 20px 40px;
+	position: relative;
+	box-sizing: border-box;
+
+
+	&-container {
+		background:#fff;
+		width: 100%; height: 100%;
+
+		margin:0; padding: 20px;
+		box-sizing:border-box;
+	}
+
+	&-left {
+		background: #fff;
+		width:66.6667%; height: auto;
+		float:left;
+	}
+
+	&-right {
+		background: #fff;
+		width: 33.3333%; height: auto;
+		float:left;
+	}
+}

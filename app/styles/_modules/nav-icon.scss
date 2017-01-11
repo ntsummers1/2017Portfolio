@@ -1,0 +1,80 @@
+.nav-trigger {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+label[for="nav-trigger"] {
+    display: block;
+    @include bp(md) { display: none; }
+    position: relative;
+    top: 15px;
+    left: 15px;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    float: left;
+    i {
+        content: "";
+        background: #000;
+        height: 5px;
+        width: 30px;
+        display: block;
+        position: absolute;
+        top: 0; bottom: 0;
+        margin: auto 0;
+        &:before {
+            content: "";
+            display: block;
+            @include bp(md) { display: none; }
+            position: absolute;
+            top: -10px;
+            left: 0px;
+            z-index: 2;
+            width: 30px;
+            height: 5px;
+            cursor: pointer;
+            background: #000;
+        }
+        &:after {
+            content: "";
+            display: block;
+            @include bp(md) { display: none; }
+            position: absolute;
+            top: 10px;
+            left: 0px;
+            z-index: 2;
+            width: 30px;
+            height: 5px;
+            cursor: pointer;
+            background: #000;
+        }
+    }
+}
+.nav-trigger:checked + label {
+    left: 120px;
+    background: none;
+}
+.nav-trigger:checked + label i {
+    background: none;
+    &:before {
+        top:0px;
+        -ms-transform: rotate(45deg); /* IE 9 */
+        -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+        transform: rotate(45deg);
+    }
+    &:after {
+        top: 0;
+        -ms-transform: rotate(-45deg); /* IE 9 */
+        -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+        transform: rotate(-45deg);
+    }
+}
+
+.nav-trigger:checked ~ .right-content {
+    left: 100px;
+    @include bp(md) { left: 0;}
+}
+.nav-trigger + label, .right-content {
+    -webkit-transition: all .2s; /* Safari */
+    transition: all 0.2s;
+}
